@@ -16,3 +16,5 @@ Youtube API Key refers to your server API Key that you can request from Google.
 Playlist ID refers to the unique ID from your playlist.
 
 E.g. For this playlist https://www.youtube.com/playlist?list=PLL9VNKZEYoMnKx-Tll69ZgYJQ4YnhsX1C, the id is PLL9VNKZEYoMnKx-Tll69ZgYJQ4YnhsX1C
+
+Finally you can just build the project, install the APK on your TV and have a working streaming channel!
