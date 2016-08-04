@@ -14,9 +14,9 @@
      limitations under the License.
 -->
 <resources>
-    <string name="app_name">AptoideTV Inputs</string>
-    <string name="company_name" translatable="false">AptoideTV</string>
-    <string name="rich_input_label" translatable="false">AptoideTV Channel</string>
+    <string name="app_name">Aptoide Channel</string>
+    <string name="company_name" translatable="false">Aptoide</string>
+    <string name="rich_input_label" translatable="false">Aptoide Channel</string>
     <string name="rich_input_feed_url" translatable="false">FEED</string>
     <string name="rich_setup_add_channel">Add Channels</string>
     <string name="rich_setup_cancel">Cancel Setup</string>
