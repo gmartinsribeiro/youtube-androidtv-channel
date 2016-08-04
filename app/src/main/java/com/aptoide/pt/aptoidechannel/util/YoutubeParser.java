@@ -1,13 +1,13 @@
 package com.aptoide.pt.aptoidechannel.util;
 
+import android.content.Context;
+
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.client.http.HttpRequest;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.youtube.YouTube;
-import com.google.api.services.youtube.model.PlaylistItem;
-import com.google.api.services.youtube.model.PlaylistItemListResponse;
-import com.google.api.services.youtube.model.PlaylistItemSnippet;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -16,6 +16,9 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import com.google.api.services.youtube.model.PlaylistItem;
+import com.google.api.services.youtube.model.PlaylistItemListResponse;
+import com.google.api.services.youtube.model.PlaylistItemSnippet;
 
 /**
  * Created by Dpswtf on 01/08/2016.
@@ -62,7 +65,11 @@ public class YoutubeParser {
         long length = timeInSeconds(eleInfo.select(".text").select(".q").first().text());
         String description = name;
         String id = url.substring(url.indexOf("watch?v=")+8, url.length());
-        Element dlEle = doc.select("li:contains("+qualityFilter+")").first();
+        Element dlEle = null;
+        dlEle = doc.select("li:contains("+qualityFilter+")").first();
+        if(dlEle == null){
+            dlEle = doc.select("li:contains("+getQualityFilter(Domain.KEEPVID, Quality.LOWESTMP4)+")").first();
+        }
         String downloadUrl = dlEle.select("a").first().attr("href");
 
         return new YoutubeVideo(name,description, id, downloadUrl, thumbnailUrl, length);
