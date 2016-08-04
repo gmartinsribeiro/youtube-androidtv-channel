@@ -13,7 +13,7 @@ import android.webkit.WebViewClient;
  */
 public class MainFragment extends Fragment {
     private static final String URL =
-            "http://www.aptoide.com";
+            "http://m.aptoide.com/installer-aptoide-tv";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
