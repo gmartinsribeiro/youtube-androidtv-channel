@@ -168,7 +168,7 @@ public class RichSetupFragment extends DetailsFragment {
         }
 
         private Bitmap fetchPoster() {
-            return BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+            return BitmapFactory.decodeResource(getResources(), R.drawable.splashscreen);
         }
     }
 
