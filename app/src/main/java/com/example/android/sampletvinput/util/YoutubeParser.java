@@ -65,7 +65,11 @@ public class YoutubeParser {
         long length = timeInSeconds(eleInfo.select(".text").select(".q").first().text());
         String description = name;
         String id = url.substring(url.indexOf("watch?v=")+8, url.length());
-        Element dlEle = doc.select("li:contains("+qualityFilter+")").first();
+        Element dlEle = null;
+        dlEle = doc.select("li:contains("+qualityFilter+")").first();
+        if(dlEle == null){
+            dlEle = doc.select("li:contains("+getQualityFilter(Domain.KEEPVID, Quality.LOWESTMP4)+")").first();
+        }
         String downloadUrl = dlEle.select("a").first().attr("href");
 
         return new YoutubeVideo(name,description, id, downloadUrl, thumbnailUrl, length);
